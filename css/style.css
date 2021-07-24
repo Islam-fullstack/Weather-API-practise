@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("../look.com.ua-66182.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    color: white;
+    font-family: sans-serif;
+}
+
+.opacity{
+    background-image: linear-gradient(
+        to bottom, rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.8));
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather__wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@media screen and ( max-width: 600px) {
+    .weather__wrapper{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse; 
+    }   
+}
+
+.weather__info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather__info .weather__country{
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.weather__info .weather__date{
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+.weather__info .weather__temperature{
+    font-size: 100px;
+    margin-bottom: 30px;
+    text-shadow: 10px 10px 20px rgb(105, 105, 105);
+}
+
+.weather__info .weather__day{
+    text-shadow: 2px 5px 20px red;
+    font-size: 25px;
+    margin-bottom: 35px;
+    font-style: italic;
+    letter-spacing: 3px;
+}
+
+.weather__info .weather__temperature__distance{
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+
+.weather__search .search{
+    outline: none;
+    border: none;
+    border-bottom: 5px solid rgb(180, 180, 0);
+    border-radius: 24px 0 24px 0;
+    height: 30px;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #555;
+    opacity: 0.7;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.weather__search .search::placeholder{
+    color: green;   
+}
+
+.weather__search .search:focus{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0 24px 0 24px;
+}
