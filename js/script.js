@@ -35,12 +35,14 @@ function setDataToPage(weatherData) {
         weatherDay = document.querySelector('.weather__day'),
         temp = document.querySelector('.weather__temperature'),
         distance = document.querySelector('.weather__temperature__distance');
-    console.log(distance)
+
+
     country.innerHTML = `${weatherData.name}, ${weatherData.sys.country}`;
     beautyDate();
     weatherDay.innerHTML = `${weatherData.weather[0].description}`;
     temp.innerHTML = `${Math.round(weatherData.main.temp)} °C`;
-    distance.innerHTML = `${Math.round(weatherData.main.temp_min)} °C / ${Math.round(weatherData.main.temp_max)} °C`
+    distance.innerHTML = `${Math.round(weatherData.main.temp_min)} °C / ${Math.round(weatherData.main.temp_max)} °C`;
+    getImage(weatherData.weather[0].icon, weatherData.weather[0].description, weatherDay);
 }
 
 function beautyDate() {
@@ -88,4 +90,14 @@ function beautyDate() {
         }
     }
     time.innerHTML = `${now.getHours()} : ${now.getMinutes()}`
+}
+
+function getImage(icon, alt, afterEl) {
+    const imgEl = document.createElement('img');
+    imgEl.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    imgEl.alt = `${alt}`;
+    imgEl.style = `
+        'borderRadius': '10px'
+    `;
+    afterEl.appendChild(imgEl);
 }
